@@ -33,6 +33,11 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
 			return false;
 
 		$insta = array_slice( $insta, 0, $count );
+
+		foreach( $insta as $item ) {
+			$item->caption = wp_encode_emoji($item->caption);
+		}
+
 		$return = set_transient( 'dude_img_hashfeed_insta', $insta, apply_filters( 'dude_img_hashfeed_insta_transient_lifetime', 5 * MINUTE_IN_SECONDS ) );
 
 		if( $return ) {
