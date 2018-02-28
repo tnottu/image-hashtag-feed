@@ -46,7 +46,7 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
 
 		$insta = $real_insta;
 
-		$return = set_transient( 'dude_img_hashfeed_insta', $insta, apply_filters( 'dude_img_hashfeed_insta_transient_lifetime', 5 * MINUTE_IN_SECONDS ) );
+		$return = set_transient( 'dude_img_hashfeed_insta', json_encode( $insta ), apply_filters( 'dude_img_hashfeed_insta_transient_lifetime', 5 * MINUTE_IN_SECONDS ) );
 
 		if( $return ) {
 			$option = get_option( 'dude-img-hashfeed' );
