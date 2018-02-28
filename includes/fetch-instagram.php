@@ -39,7 +39,7 @@ Class Dude_Img_Hashfeed_Fetch_Instagram extends Dude_Img_Hashfeed {
 		 */
 		foreach ( $insta as $insta_post_key => $insta_post ) {
 			$real_insta[ $insta_post_key ] = $insta_post->node;
-			$real_insta[ $insta_post_key ]->caption = $insta_post->node->edge_media_to_caption->edges{0}->node->text;
+			$real_insta[ $insta_post_key ]->caption = wp_encode_emoji( $insta_post->node->edge_media_to_caption->edges{0}->node->text );
 			$real_insta[ $insta_post_key ]->likes = $insta_post->node->edge_liked_by;
 			$real_insta[ $insta_post_key ]->code = $insta_post->node->shortcode;
 		}
